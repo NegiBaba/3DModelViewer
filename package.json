@@ -1,0 +1,30 @@
+{
+	"name": "3dmodelviewer",
+	"version": "1.0.0",
+	"description": "A Web app that let's user see their 3d renders and upload them.",
+	"main": "./server/server.js",
+	"scripts": {
+		"start": "nodemon --exec babel-node ./server/server.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/NegiBaba/3DModelViewer.git"
+	},
+	"author": "Piyush Negi",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/NegiBaba/3DModelViewer/issues"
+	},
+	"homepage": "https://github.com/NegiBaba/3DModelViewer#readme",
+	"dependencies": {
+		"express": "^4.18.1",
+		"mongoose": "^6.3.6"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.18.2",
+		"@babel/node": "^7.17.10",
+		"@babel/preset-env": "^7.18.2",
+		"nodemon": "^2.0.16"
+	}
+}
