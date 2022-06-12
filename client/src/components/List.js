@@ -1,36 +1,27 @@
-const List = () => {
-	const list = [
-		{
-			id: 1,
-			name: "file",
-		},
-		{
-			id: 2,
-			name: "file2",
-		},
-		{
-			id: 3,
-			name: "file3",
-		},
-		{
-			id: 4,
-			name: "file4",
-		},
-		{
-			id: 5,
-			name: "file5",
-		},
-		{
-			id: 6,
-			name: "file6",
-		},
-	];
+import { useNavigate } from "react-router-dom";
+
+const List = ({ files }) => {
+	let navigate = useNavigate();
+
+	const viewFile = (event) => {
+		navigate(`/view/${event.currentTarget.dataset.name}`);
+	};
+
+	const itemName = (name) => {
+		return name.split(".").slice(0, -1).join(".");
+	};
 
 	return (
 		<div className="list_container">
-			{list.map((item) => (
-				<div key={item.id} className="list_item">
-					{item.name}
+			{files.map((item) => (
+				<div key={item.Key} className="list_item">
+					<div
+						className="item_container"
+						data-name={item.Key}
+						onClick={viewFile}
+					>
+						{itemName(item.Key)}
+					</div>
 				</div>
 			))}
 		</div>
