@@ -4,7 +4,7 @@
 	"description": "A Web app that let's user see their 3d renders and upload them.",
 	"main": "./server/server.js",
 	"scripts": {
-		"start": "nodemon --exec babel-node ./server/server.js",
+		"start": "node --exec babel-node ./server/server.js",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"heroku-postBuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
 	},
