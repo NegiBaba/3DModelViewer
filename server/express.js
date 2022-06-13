@@ -11,6 +11,10 @@ const app = express();
 app.use(upload.single("file"));
 app.use(cors());
 
+if (process.env.NODE_ENV === "production") {
+	app.use(express.static("client/build"));
+}
+
 app.use("/", modelRoutes);
 
 export default app;
