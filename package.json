@@ -5,7 +5,8 @@
 	"main": "./dist/server.generated.js",
 	"scripts": {
 		"build": "webpack --config webpack.config.server.js && npm install --prefix client && npm run build --prefix client",
-		"start": "node ./dist/server.generated.js"
+		"start": "node ./dist/server.generated.js",
+		"develop": "nodemon --exec babel-node ./server/server.js"
 	},
 	"repository": {
 		"type": "git",
