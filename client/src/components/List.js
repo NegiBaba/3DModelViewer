@@ -17,27 +17,28 @@ const List = ({ files }) => {
 	return (
 		<Box sx={{ flexGrow: 1, m: 2, p: 2, borderRadius: 1, bgcolor: "#242424" }}>
 			<Grid container>
-				{files.map((item) => (
-					<Grid
-						container
-						item
-						key={item.Key}
-						data-name={item.Key}
-						onClick={viewFile}
-						sx={{
-							"p": 2,
-							"m": 1,
-							"borderRadius": 1,
-							"bgcolor": "rgba(255, 255, 255, 0.1)",
-							"&:hover": {
-								cursor: "pointer",
-								bgcolor: "rgba(255, 255, 255, 0.2)",
-							},
-						}}
-					>
-						{itemName(item.Key)}
-					</Grid>
-				))}
+				{files &&
+					files.map((item) => (
+						<Grid
+							container
+							item
+							key={item.Key}
+							data-name={item.Key}
+							onClick={viewFile}
+							sx={{
+								"p": 2,
+								"m": 1,
+								"borderRadius": 1,
+								"bgcolor": "rgba(255, 255, 255, 0.1)",
+								"&:hover": {
+									cursor: "pointer",
+									bgcolor: "rgba(255, 255, 255, 0.2)",
+								},
+							}}
+						>
+							{itemName(item.Key)}
+						</Grid>
+					))}
 			</Grid>
 		</Box>
 	);
