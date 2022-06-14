@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import multer from "multer";
+import path from "path";
 
 import modelRoutes from "./routes/models.routes";
 
@@ -11,10 +12,11 @@ const app = express();
 app.use(upload.single("file"));
 app.use(cors());
 
-if (process.env.NODE_ENV === "production") {
-	app.use(express.static("client/build"));
-}
+app.use(express.static("client/build"));
 
 app.use("/", modelRoutes);
+app.get("*", (req, res) => {
+	res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+});
 
 export default app;
