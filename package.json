@@ -2,12 +2,10 @@
 	"name": "3dmodelviewer",
 	"version": "1.0.0",
 	"description": "A Web app that let's user see their 3d renders and upload them.",
-	"main": "./server/server.js",
+	"main": "./dist/server.generated.js",
 	"scripts": {
-		"start": "node ./server/server.js",
-		"develop": "nodemon --exec babel-node ./server/server.js",
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"heroku-postBuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+		"build": "webpack --config webpack.config.server.js && npm install --prefix client && npm run build --prefix client",
+		"start": "node ./dist/server.generated.js"
 	},
 	"repository": {
 		"type": "git",
@@ -24,14 +22,16 @@
 		"cors": "^2.8.5",
 		"dotenv": "^16.0.1",
 		"express": "^4.18.1",
-		"mongoose": "^6.3.6",
 		"multer": "^1.4.5-lts.1",
-		"uuid": "^8.3.2"
+		"uuid": "^8.3.2",
+		"webpack": "^5.73.0",
+		"webpack-node-externals": "^3.0.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.18.2",
-		"@babel/node": "^7.17.10",
 		"@babel/preset-env": "^7.18.2",
-		"nodemon": "^2.0.16"
+		"babel-loader": "^8.2.5",
+		"nodemon": "^2.0.16",
+		"webpack-cli": "^4.10.0"
 	}
 }
