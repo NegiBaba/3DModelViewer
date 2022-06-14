@@ -135,7 +135,7 @@ export default function Model() {
 
 	const fetchModelUrl = (name) => {
 		axios
-			.get(`http://localhost:3000/api/models/${params.id}`)
+			.get(`/api/models/${params.id}`)
 			.then((res) => {
 				setFileUrl(res.data.url);
 			})

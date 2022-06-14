@@ -28,7 +28,7 @@ const Home = () => {
 			formData.append("fileName", fileName);
 
 			axios
-				.post("http://localhost:3000/api/models", formData, {
+				.post("/api/models", formData, {
 					headers: {
 						"Content-Type": "multipart/form-data",
 					},
@@ -44,7 +44,7 @@ const Home = () => {
 
 	const fetchModelsList = () => {
 		axios
-			.get("http://localhost:3000/api/models")
+			.get("/api/models")
 			.then((res) => {
 				setFiles(res.data.Contents);
 			})
